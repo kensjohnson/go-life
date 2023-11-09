@@ -17,6 +17,14 @@ func (c cell) print() {
 	fmt.Printf("Cell: Row:%d Col:%d Alive:%t Made Live:%d Made Dead:%d \n", c.rowNum, c.colNumb, c.cellAlive, c.madeAliveCtr, c.madeDeadCtr)
 }
 
+func (c cell) symbolize() string {
+	if c.cellAlive {
+		return "@"
+	} else {
+		return "-"
+	}
+}
+
 func main() {
 	fmt.Println("welcome to the game of life")
 	c := cell{
@@ -28,5 +36,8 @@ func main() {
 	}
 
 	c.print()
+	fmt.Println(c.symbolize())
+	c.cellAlive = true
+	fmt.Println(c.symbolize())
 
 }
