@@ -12,6 +12,11 @@ type cell struct {
 	madeDeadCtr  int
 }
 
+func (c cell) print() {
+
+	fmt.Printf("Cell: Row:%d Col:%d Alive:%t Made Live:%d Made Dead:%d \n", c.rowNum, c.colNumb, c.cellAlive, c.madeAliveCtr, c.madeDeadCtr)
+}
+
 func main() {
 	fmt.Println("welcome to the game of life")
 	c := cell{
@@ -21,5 +26,7 @@ func main() {
 		madeAliveCtr: 0,
 		madeDeadCtr:  0,
 	}
+
+	c.print()
 
 }
