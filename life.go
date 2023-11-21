@@ -4,6 +4,9 @@ package main
 
 import "fmt"
 
+const rows = 10
+const cols = 10
+
 type cell struct {
 	rowNum       int
 	colNumb      int
@@ -39,5 +42,24 @@ func main() {
 	fmt.Println(c.symbolize())
 	c.cellAlive = true
 	fmt.Println(c.symbolize())
+
+	//define grid as rowxcol array. can use array since size known at compile time and doesnt change during execution
+	grid := [rows][cols]cell{}
+
+	//initialize grid
+	for kr, r := range grid {
+		for kc, c := range r {
+			grid[kr][kc].cellAlive = true
+			grid[kr][kc].colNumb = kc
+			grid[kr][kc].rowNum = kr
+			grid[kr][kc].madeAliveCtr = 0
+			grid[kr][kc].madeDeadCtr = 0
+
+		}
+	}
+	fmt.Println(grid)
+
+	// end of program
+	fmt.Println("end of program")
 
 }
